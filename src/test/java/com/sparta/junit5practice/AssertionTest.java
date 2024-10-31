@@ -52,4 +52,11 @@ public class AssertionTest {
         Double result2 = calculator.operate(5, "/", 0);
         assertNull(result2);
     }
+
+    @Test
+    @DisplayName("assertThrows")
+    void test4() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> calculator.operate(5, "?", 2));
+        assertEquals("잘못된 연산자입니다.", exception.getMessage());
+    }
 }
